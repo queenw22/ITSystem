@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TicketFinalSys.Models.Ticket>
+
+@{
+    ViewBag.Title = "Open";
+}
+
+<h2>Open Tickets</h2>
+
+<p>
+    Below is a report of open tickets. Click the Tech Assigned label to sort the tickets by the assigned techs.
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDesc)
+        </th>
+        <th>
+            @Html.ActionLink("Tech Assigned", "Open",  new { sortOrder = ViewBag.NameSortParm }, new { @class = "text-danger" })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechAssigned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Assign Tech", "AssignTech", new { id=item.ID }, new { @class = "text-danger" })
+        </td>
+    </tr>
+}
+
+</table>

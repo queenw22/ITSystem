@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    input {
+        background-color: #343a40;
+        border: none;
+        color: #dc3545;
+        padding: 16px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+</style>
+
+<div class="jumbotron bg-danger">
+    <h1>Help Desk Ticket System</h1>
+    <p class="lead">
+        This system was created to keep track of the open IT ticket request. To put in a ticket request refer to the Ticket Request page. For technicians, a report of all 
+        open requst can be found on the Open Request page. There is also a report of all request which can be found on the Technician page.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>For Users: </h3>
+        <p>
+            Fill out ticket request form
+            <input type="button" value="Ticket Request" onclick="location.href='@Url.Action("Create", "Ticket")'" />
+        </p>
+
+    </div>
+
+    <div class="col-md-4">
+        <h3>For Technicians: </h3>
+        <p>
+            Go to Open Request Report
+            <input type="button" value="Open Request" onclick="location.href='@Url.Action("Open", "Ticket")'" />
+        </p>
+
+    </div>
+</div>

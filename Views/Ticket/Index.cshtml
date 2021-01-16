@@ -1,0 +1,73 @@
+﻿@model IEnumerable<TicketFinalSys.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Technician Index</h2>
+<p>Below is a report of all request, opened and closed. Technicians can choose to delete closed request or keep them for future references. </p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechAssigned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechAssigned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Complete Request", "Edit", new { id=item.ID }, new { @class = "text-danger" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }, new { @class = "text-danger" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "text-danger" })
+        </td>
+    </tr>
+}
+
+</table>
