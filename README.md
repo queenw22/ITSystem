@@ -1,6 +1,7 @@
 IT Ticket system developed with ASP.NET MVC, C# and Code-first Entity Framework for the database. The user can put in an IT Request and the technician can 
 complete the task. The website also features a page that shows only opened(incomplete) requests.
-Project Set Up
+
+Project Set Up:
 1.	install visual studio 2019(2017 should work as well)
 2.	Download the zipped file to your computer 
 3.	Extract the files from the zipped file
